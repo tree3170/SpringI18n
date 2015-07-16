@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- 1.开启MVC注解 -->
+	<mvc:annotation-driven />
+	<!-- 2.开启静态资源访问 -->
+	<!-- <mvc:default-servlet-handler /> -->
+	<!-- 3.默认首页：不经过controller直接跳到静态资源 -->
+	<mvc:view-controller path="/" view-name="/welcome" />
+	<!-- 4.指定包路径扫描并注册Spring组件 -->
+	<context:component-scan base-package="com.i18n"></context:component-scan>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- 5.视图解析 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- 配置国际化资源文件 -->
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basename">
+			<!-- 定义消息资源文件的相对路径(messages/message_en.properties) -->
+			<beans:value>messages/message</beans:value>
+		</beans:property>
+		<beans:property name="useCodeAsDefaultMessage">
+			<beans:value>true</beans:value>
+		</beans:property>
+	</beans:bean>
+	<!-- 基于Cookie的本地化解析器 -->
+	 <!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	 	<property name="cookieMaxAge" value="604800"/>
+	 	<property name="defaultLocale" value="zh_CN"/>
+	 	<property name="cookieName" value="Language"></property>
+	 </bean> -->
+	 <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+	<context:component-scan base-package="com.darlen.demo" />
+	<context:component-scan base-package="com.i18n.controller" />
+	
+	
+	
+</beans:beans>

@@ -1,0 +1,4 @@
+这是一个简单的Spring管理的I18n Demo
+1.如何访问：
+http://localhost:8180/helloDemo/i18n/language?language=en
+http://localhost:8180/helloDemo/demo/
