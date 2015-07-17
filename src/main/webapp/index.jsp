@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title><fmt:message key="welcome"></fmt:message></title>
+    <title>Welcome</title>
     <meta http-equiv="Content-type" content="text/html;charset=utf-8"  >
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
 <body>
+<fmt:setBundle basename="message/message"></fmt:setBundle>
 <h2>Hello World!</h2>
 <fmt:message key="welcome"></fmt:message>
 </body>

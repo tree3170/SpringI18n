@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<h2><spring:message code="something"></spring:message></h2>
+  	<h2><spring:message code="otherSomething"></spring:message></h2>
   	<a href="#"><spring:message code="index"></spring:message></a>
   	
   </body>

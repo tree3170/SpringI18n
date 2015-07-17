@@ -22,10 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <h2><spring:message code="hi"></spring:message></h2>
-    <a href="i18n/language?language=zh_CN"><spring:message code="Chinese"></spring:message></a>
-    <a href="i18n/language?language=en"><spring:message code="English"></spring:message></a>
-    <a href="i18n/language?language=en"><fmt:message key="English"></fmt:message></a>
+    <a href="i18nSession/switchLang/zh_CN/session"><spring:message code="Chinese"></spring:message></a>
+    <a href="i18nSession/switchLang/en/session"><spring:message code="English"></spring:message></a>
+    <a href="i18nSession/switchLang/en/session"><fmt:message key="English"></fmt:message></a>
     <br/><br/>
-    <a href="i18n/something"><spring:message code="OtherPage"></spring:message></a>
+    <a href="i18nSession/something"><spring:message code="OtherPage"></spring:message></a>
   </body>
 </html>
